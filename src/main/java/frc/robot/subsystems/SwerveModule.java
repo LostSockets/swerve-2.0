@@ -34,7 +34,9 @@ public class SwerveModule {
     private final double absoluteEncoderOffsetRad;
 
     public SwerveModule(int driveMotorId, int turningMotorId, boolean driveMotorReversed, boolean turningMotorReversed,
-            int absoluteEncoderId, double absoluteEncoderOffset, boolean absoluteEncoderReversed, int absoluteEncoderPort) {
+            int absoluteEncoderId, double absoluteEncoderOffset, boolean absoluteEncoderReversed) {
+
+        final int absoluteEncoderPort = 0;
 
         this.absoluteEncoderOffsetRad = absoluteEncoderOffset;
         this.absoluteEncoderReversed = absoluteEncoderReversed;
