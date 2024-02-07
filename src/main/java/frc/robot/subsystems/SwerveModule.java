@@ -1,12 +1,14 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.RelativeEncoder;
+//import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 //import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.wpilibj.RobotController;
 //import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -93,6 +95,10 @@ public class SwerveModule {
         driveEncoder.setPosition(0);
         turningEncoder.setPosition(getAbsoluteEncoderRad());
     }
+
+    public SwerveModulePosition getPosition() {
+        return new SwerveModulePosition(getDrivePosition(), Rotation2d.fromRadians(absoluteEncoderOffsetRad));
+}
 
     public SwerveModuleState getState() {
         return new SwerveModuleState(getDriveVelocity(), new Rotation2d(getTurningPosition()));
