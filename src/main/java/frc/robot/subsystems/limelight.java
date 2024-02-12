@@ -8,11 +8,11 @@ public class Limelight extends SubsystemBase {
     private NetworkTable table;
 
     /** Constructs a limelight
-     *  @param tableName The name of the network table that the limelight is posting to.
+     *  @param limelight The name of the network table that the limelight is posting to.
      *  This should be the limelight's configured hostname. Default is "limelight"
      */
-    public Limelight(String tableName) {
-        table = NetworkTableInstance.getDefault().getTable(tableName);
+    public Limelight(String limelight) {
+        table = NetworkTableInstance.getDefault().getTable(limelight);
     }
 
     /** @return Whether the limelight sees at least one valid target */
