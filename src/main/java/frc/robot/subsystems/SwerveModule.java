@@ -10,6 +10,7 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.wpilibj.RobotController;
+import frc.robot.Constants;
 //import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants.DriveConstants;
@@ -38,11 +39,11 @@ public class SwerveModule {
     public SwerveModule(int driveMotorId, int turningMotorId, boolean driveMotorReversed, boolean turningMotorReversed,
             int absoluteEncoderId, double absoluteEncoderOffset, boolean absoluteEncoderReversed) {
 
-        final int absoluteEncoderPort = 0;
+        //final int absoluteEncoderPort = 0;
 
         this.absoluteEncoderOffsetRad = absoluteEncoderOffset;
         this.absoluteEncoderReversed = absoluteEncoderReversed;
-        absoluteEncoder = new com.ctre.phoenix6.hardware.CANcoder(absoluteEncoderPort);
+        absoluteEncoder = new com.ctre.phoenix6.hardware.CANcoder(Constants.DriveConstants.absoluteEncoderPort);
         com.ctre.phoenix6.configs.CANcoderConfiguration cfg = new com.ctre.phoenix6.configs.CANcoderConfiguration();
         cfg.MagnetSensor.MagnetOffset = 0.0f;
         absoluteEncoder.getConfigurator().apply(cfg);
