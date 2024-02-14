@@ -43,7 +43,7 @@ public class SwerveModule {
 
         this.absoluteEncoderOffsetRad = absoluteEncoderOffset;
         this.absoluteEncoderReversed = absoluteEncoderReversed;
-        absoluteEncoder = new com.ctre.phoenix6.hardware.CANcoder(Constants.DriveConstants.absoluteEncoderPort);
+        absoluteEncoder = new com.ctre.phoenix6.hardware.CANcoder(absoluteEncoderId);
         com.ctre.phoenix6.configs.CANcoderConfiguration cfg = new com.ctre.phoenix6.configs.CANcoderConfiguration();
         cfg.MagnetSensor.MagnetOffset = 0.0f;
         absoluteEncoder.getConfigurator().apply(cfg);
