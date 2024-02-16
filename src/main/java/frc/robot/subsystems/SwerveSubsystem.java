@@ -18,7 +18,7 @@ public class SwerveSubsystem extends SubsystemBase {
             DriveConstants.kFrontLeftDriveMotorPort,
             DriveConstants.kFrontLeftTurningMotorPort,
             DriveConstants.kFrontLeftDriveEncoderReversed,
-            DriveConstants.kFrontLeftTurningEncoderReversed,
+             DriveConstants.kFrontLeftTurningEncoderReversed,
             DriveConstants.kFrontLeftDriveAbsoluteEncoderPort,
             DriveConstants.kFrontLeftDriveAbsoluteEncoderOffsetRad,
             DriveConstants.kFrontLeftDriveAbsoluteEncoderReversed);
@@ -91,6 +91,8 @@ public class SwerveSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
+        //This is for calibration only
+        //printAbsoluteEncoderRad();
         odometer.update(getRotation2d(), new SwerveModulePosition[] {
             frontLeft.getPosition(),
             frontRight.getPosition(),
@@ -116,5 +118,13 @@ public class SwerveSubsystem extends SubsystemBase {
         frontRight.setDesiredState(desiredStates[1]);
         backLeft.setDesiredState(desiredStates[2]);
         backRight.setDesiredState(desiredStates[3]);
+    }
+
+    public void printAbsoluteEncoderRad() {
+        System.out.printf("%.3f, %.3f, %.3f, %.3f%n",
+        frontLeft.getAbsoluteEncoderRad(),
+        frontRight.getAbsoluteEncoderRad(),
+        backLeft.getAbsoluteEncoderRad(),
+        backRight.getAbsoluteEncoderRad());
     }
 }
